@@ -39,9 +39,6 @@ CREATE TABLE Client(
     FOREIGN KEY(branch_id) REFERENCES Branch(branch_id) ON DELETE SET NULL
 );
 
-
-
-
 --Works_With Table:
 CREATE TABLE Works_With (
     emp_id INT,
@@ -217,6 +214,7 @@ GROUP BY sex;
 SELECT SUM(total_sales), emp_id
 FROM Works_With
 GROUP BY emp_id;
+
 --SQL Wildcards:--
 --Find any clients who are an LLC:
 SELECT *
@@ -243,7 +241,7 @@ SELECT *
 FROM Client
 WHERE client_name LIKE '%school%';
 
---SQL Union--
+--SQL Union:
 --Find a list of employee and branch name:
 SELECT first_name
 FROM Employee
@@ -291,10 +289,6 @@ UNION
 SELECT total_sales, Works_With.emp_id
 FROM Works_With;
 
-
-
-
-
 --SQL Joins:
 INSERT INTO Branch VALUES(4, 'Buffalo', NULL, NULL);
 
@@ -303,7 +297,6 @@ SELECT Employee.emp_id, Employee.first_name, Branch.branch_name
 FROM Employee
 JOIN Branch
 ON Employee.emp_id = Branch.mgr_id;
-
 
 SELECT Employee.emp_id, Employee.first_name, Branch.branch_name
 FROM Employee
